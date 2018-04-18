@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://likerey.com/referral.php -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Referral</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0, maximum-scale=1">
+  <meta name="format-detection" content="telephone=no">
+</head>
+
+<body>
+  <link media="all" rel="stylesheet" type="text/css" href="./referal_files/styles.css">
+  <div class="total-container">
+    <!-- .header -->
+    <header class="header">
+      <div class="cont">
+        <a class="logo" href="https://likerey.com/index.php">Poprey</a>
+        <ul class="menu">
+          <li class="active"><a href="https://likerey.com/referral.php">Referral Program</a></li>
+          <li><a href="https://likerey.com/faq.php">FAQ</a></li>
+          <li><a href="https://likerey.com/contact.php">Contact</a></li>
+          <li><a href="https://likerey.com/rules.php">Terms of service</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- END .header -->
+    <!-- .content -->
+    <div class="content referral-content">
+      <div class="cont">
+        <div class="title">
+          <h2>How does it work?</h2></div>
+        <div class="textBox">
+          <ol class="list-referral">
+            <li>
+              Register to receive access to your account.
+            </li>
+            <li>
+              Copy the link and share it with your friends or make an advertising of it.
+            </li>
+            <li>
+              % from every purchase on the link is received by you in the Personal Account.
+            </li>
+            <li>
+              Pay it out at any time using PayPal
+            </li>
+          </ol>
+        </div>
+        <div class="textBox">
+          <div class="title title--border">
+            <h3>Remuneration amounts</h3></div>
+          <div class="bets bets--2">
+            <div class="bet">
+              <span>0-100$</span>
+              <span class="bet-discount">20%</span>
+            </div>
+            <div class="bet">
+              <span>100-1 000$</span>
+              <span class="bet-discount">25%</span>
+            </div>
+            <div class="bet">
+              <span>1K-10K$</span>
+              <span class="bet-discount">30%</span>
+            </div>
+            <div class="bet">
+              <span>10K-50K$</span>
+              <span class="bet-discount">35%</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-buttBox">
+          <ul class="contact-buttBox__list">
+            <li>
+              <a class="button button--bigGo" href="javascript:open_popup(&#39;popUp_register&#39;);">Register</a>
+            </li>
+            <li>
+              <a class="button button--bigGo" href="javascript:open_popup(&#39;popUp_login&#39;);">Log In</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- END .content -->
+  </div>
+  <!--register-->
+  <div class="popUp popUp--price" id="popUp_register">
+    <div class="popUp__block">
+      <div class="popUp__window">
+        <div class="popUp-close"></div>
+        <form action="https://likerey.com/referral.php" method="post" onsubmit="send_form(this); return false;">
+          <span class="popUp-title">Registration</span>
+          <input type="hidden" name="register" value="1">
+          <div class="popUp-cont">
+            <div class="popUp-cont__box">
+              <input class="inputPopup input-email" type="email" name="email" placeholder="Email" required="">
+            </div>
+            <div class="popUp-cont__box">
+              <input class="inputPopup input-password" type="password" name="pass1" placeholder="Password">
+            </div>
+            <div class="popUp-cont__box">
+              <input class="inputPopup input-confirm-password" type="password" name="pass2" placeholder="Password">
+            </div>
+          </div>
+          <div class="popUp-butt">
+            <input class="button button--average" type="submit" value="Register">
+          </div>
+          <span class="popUp-info">By purchasing, you agree with <a href="javascript:void(0)">rules</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--login-->
+  <div class="popUp popUp--price" id="popUp_login">
+    <div class="popUp__block">
+      <div class="popUp__window">
+        <div class="popUp-close"></div>
+        <form action="https://likerey.com/referral.php" method="post" onsubmit="send_form(this); return false;">
+          <span class="popUp-title">Log In</span>
+          <input type="hidden" name="login" value="1">
+          <div class="popUp-cont">
+            <div class="popUp-cont__box">
+              <input class="inputPopup input-email" type="email" name="email" placeholder="Email" required="">
+            </div>
+            <div class="popUp-cont__box">
+              <input class="inputPopup input-password" type="password" name="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="popUp-butt">
+            <input class="button button--average" type="submit" value="Log in">
+          </div>
+          <span class="popUp-info">By purchasing, you agree with <a href="javascript:void(0)">rules</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./referal_files/libs.min.js.завантаження"></script>
+  <script type="text/javascript" src="./referal_files/main.js.завантаження"></script>
+</body>
+
+</html>

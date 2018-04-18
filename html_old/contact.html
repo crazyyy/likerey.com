@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://likerey.com/contact.php -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0, maximum-scale=1">
+  <meta name="format-detection" content="telephone=no">
+</head>
+
+<body>
+  <link media="all" rel="stylesheet" type="text/css" href="./contact_files/styles.css">
+  <div class="total-container">
+    <!-- .header -->
+    <header class="header">
+      <div class="cont">
+        <a class="logo" href="https://likerey.com/index.php">Poprey</a>
+        <ul class="menu">
+          <li><a href="https://likerey.com/referral.php">Referral program</a></li>
+          <li><a href="https://likerey.com/faq.php">FAQ</a></li>
+          <li class="active"><a href="https://likerey.com/contact.php">Contact</a></li>
+          <li><a href="https://likerey.com/rules.php">Terms of service</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- END .header -->
+    <!-- .contact -->
+    <div class="contact">
+      <div class="cont">
+        <div class="contact-block">
+          <div class="title">
+            <h2>Contact</h2></div>
+          <div class="contact-informer">
+          </div>
+          <form class="form" id="form" onsubmit="send_form(); return false;">
+            <div class="contact-cont">
+              <div class="contact-cont__box">
+                <input class="inputBox" type="email" id="email" placeholder="Order Email" required="">
+              </div>
+              <div class="contact-cont__box">
+                <textarea class="textareaBox" id="text" placeholder="Your question" required=""></textarea>
+              </div>
+              <div class="contact-cont__box">
+                <input class="button button--grayBig" type="submit" value="Submit">
+              </div>
+            </div>
+          </form>
+          <div class="contact-sent" style="display: none;">
+          </div>
+          <div class="contact-buttBox">
+            <a class="button button--bigGo" href="https://likerey.com/index.php">Go Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END .contact -->
+  </div>
+  <script type="text/javascript" src="./contact_files/libs.min.js.завантаження"></script>
+  <script type="text/javascript" src="./contact_files/main.js.завантаження"></script>
+  <script>
+  function send_form() {
+    $.post('contact.php', {
+      email: $('#email').val(),
+      text: $('#text').val()
+    }, function(data) {
+      res = $.parseJSON(data);
+      if (res.result == 'Ok') {
+        $('#form').hide();
+        $('.contact-sent').show();
+      } else {
+        alert(res.text);
+      }
+    });
+  }
+  </script>
+</body>
+
+</html>
