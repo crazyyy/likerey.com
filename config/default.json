@@ -1,6 +1,6 @@
 {
-  "domain": "wp-framework.dev",
-  "theme": "wp-framework",
+  "domain": "likerey.local",
+  "theme": "wp-likerey",
   "path": {
     "base": {
       "src":"assets/",
