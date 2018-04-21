@@ -1,15 +1,22 @@
 <?php get_header(); ?>
+  <div class="total-container">
 
-  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <header class="header">
+      <div class="cont">
+        <a class="logo" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+        <?php wpeHeadNav(); ?>
+      </div>
+    </header>
+    <!-- END .header -->
 
-      <h1 class="page-title inner-title"><?php the_title(); ?></h1>
-      <?php the_content(); ?>
-      <?php edit_post_link(); ?>
+    <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+      <!-- .content -->
+      <div class="content referral-content">
+        <div class="cont">
+          <?php the_content(); ?>
+        </div>
+      </div><!-- END .content -->
+    <?php endwhile; endif; ?>
 
-    </article>
-  <?php endwhile; endif; ?>
-
-  <?php get_sidebar(); ?>
-
+  </div><!--total-container-->
 <?php get_footer(); ?>

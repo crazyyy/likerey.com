@@ -46,3 +46,17 @@ if (typeof jQuery === "undefined") {
   console.log("jQuery " + jQuery.fn.jquery + " has loaded")
 }
 // Place any jQuery/helper plugins in here.
+jQuery(document).ready(function($) {
+
+  $('.rounded-menu--saitobaza a').on('click', function(e) {
+    e.preventDefault();
+    $('.rounded-menu--saitobaza .active').removeClass('active');
+    $(this).parent().addClass('active');
+    var thisId = $(this).attr('data-id');
+
+    $('.goods__cont_saitobaza .active').removeClass('active');
+    var selector = '.goods__box_' + thisId;
+    $(selector).addClass('active');
+
+  })
+});

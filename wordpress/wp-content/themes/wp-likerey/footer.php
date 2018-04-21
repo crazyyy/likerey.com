@@ -43,8 +43,6 @@
   <!-- Instagram Likes -->
 
   <?php wp_footer(); ?>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/libs.min.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
-</body>
 
+</body>
 </html>

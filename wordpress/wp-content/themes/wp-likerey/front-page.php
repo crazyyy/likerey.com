@@ -23,56 +23,59 @@
     <div class="goods">
       <div class="rounded">
         <div class="cont">
-          <ul class="rounded-menu">
+          <ul class="rounded-menu rounded-menu--saitobaza">
             <?php $terms = get_terms( 'social', array( 'parent' => $mother_of_child->term_taxonomy_id, 'orderby' => 'slug', 'hide_empty' => false ) );
-              $mother_of_products = $terms[1];
+              $i = 0;
               foreach ( $terms as $term ) { ?>
-              <?php $is_active_class = ''; if(($mother_of_products->term_id == $term->term_id)){ $is_active_class = 'active'; } ?>
-              <li class="<?php echo $is_active_class; ?>"><a href="<?php echo get_term_link( $term ); ?>"><?php echo $term->name; ?></a></li>
-            <?php } ?>
+              <?php $is_active_class = ''; if(($i == 0)){ $is_active_class = 'active'; } ?>
+              <li class="<?php echo $is_active_class; ?>"><a href="<?php echo get_term_link( $term ); ?>" data-id="<?php echo $term->term_id; ?>"><?php echo $term->name; ?></a></li>
+            <?php $i++;  };  ?>
           </ul>
         </div>
       </div>
 
-      <div class="goods__cont">
-        <!-- .goods__box -->
-        <div class="goods__box active">
-          <div class="price-block">
-            <div class="cont">
-              <?php
-                $exec_query = new WP_Query( array(
-                    'post_type' => 'product',
-                    'orderby' => 'modified',
-                    'order'   => 'ASC',
-                      'tax_query' => array(
-                          array(
-                              'taxonomy' => 'social', // taxonomy name
-                              'field' => 'term_id', // term_id, slug or name
-                              'terms' => $mother_of_products->term_id, // term id, term slug or term name
+      <div class="goods__cont goods__cont_saitobaza">
+
+        <?php $terms = get_terms( 'social', array( 'parent' => $mother_of_child->term_taxonomy_id, 'orderby' => 'slug', 'hide_empty' => false ) );
+          $i = 0;
+          foreach ( $terms as $term ) { ?>
+          <?php $is_active_class = ''; if(($i == 0)){ $is_active_class = 'active'; } ?>
+            <div class="goods__box goods__box_<?php echo $term->term_id; ?> <?php echo $is_active_class; ?>">
+              <div class="price-block">
+                <div class="cont">
+                  <?php
+                    $exec_query = new WP_Query( array(
+                        'post_type' => 'product',
+                        'orderby' => 'modified',
+                        'order'   => 'ASC',
+                          'tax_query' => array(
+                              array(
+                                  'taxonomy' => 'social', // taxonomy name
+                                  'field' => 'term_id', // term_id, slug or name
+                                  'terms' => $term->term_id, // term id, term slug or term name
+                              )
                           )
-                      )
-                ) );
+                    ) );
+                    if ( $exec_query->have_posts() ) { ?>
 
-                if ( $exec_query->have_posts() ) { ?>
+                    <?php while ( $exec_query->have_posts() ): $exec_query->the_post(); ?>
+                      <div class="price-cont">
+                        <div class="price-box">
+                          <span class="price-box__title"><?php the_title(); ?></span>
+                          <span class="price-box__value">$<?php the_field('price'); ?></span>
+                          <span class="button" onclick="open_popup('popUp_8', '10', '10 Followers', '0.00', 'Instagram Username');">Buy Now</span>
+                        </div>
+                      </div>
+                     <?php endwhile; ?>
+                  <?php wp_reset_postdata(); } ?>
+                </div>
+              </div>
+            </div><!-- END .goods__box -->
+        <?php $i++; }; ?>
 
-                <?php while ( $exec_query->have_posts() ): $exec_query->the_post(); ?>
-                  <div class="price-cont">
-                    <div class="price-box">
-                      <span class="price-box__title"><?php the_title(); ?></span>
-                      <span class="price-box__value">$<?php the_field('price'); ?></span>
-                      <span class="button" onclick="open_popup('popUp_8', '10', '10 Followers', '0.00', 'Instagram Username');">Buy Now</span>
-                    </div>
-                  </div>
-                 <?php endwhile; ?>
-              <?php wp_reset_postdata(); } ?>
-            </div>
-          </div>
+        <?php include(TEMPLATEPATH.'/info-block.php'); ?>
 
-          <?php include(TEMPLATEPATH.'/info-block.php'); ?>
-
-        </div>
-        <!-- END .goods__box -->
-      </div>
+      </div><!-- goods__cont goods__cont_saitobaza -->
     </div>
 
     <div class="hFooter"></div>

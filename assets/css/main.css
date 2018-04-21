@@ -1,21 +1,3 @@
-/* ============================================================= */
-/* ============================================================= */
-/* ============================================================= */
-/* ============================================================= */
-/* ============================================================= */
-/* Flex-flow is short hand for "flex-direction" & "flex-wrap" */
-/* Flex-direction - Column */
-/* Flex-direction - Row */
-/* Align Items - Stretch */
-/* Align Items - Center */
-/* ============================================================= */
-/* ============================================================= */
-/* Clearfix */
-/* Revert clearfix */
-/* ============================================================= */
-/* ============================================================= */
-/* ============================================================= */
-/* ============================================================= */
 .b {
   border: 1px solid red;
 }
@@ -504,6 +486,7 @@ button.button {
   width: 100%;
 }
 
+.menu li.current_page_item a:after,
 .menu li.active a:after {
   left: 0px;
   width: 100%;
@@ -563,6 +546,7 @@ button.button {
   display: none;
 }
 
+.goods__box.current_page_item,
 .goods__box.active {
   display: block;
 }
@@ -647,6 +631,7 @@ button.button {
   border-color: #f4f4f4;
 }
 
+.social-networks li.current_page_item a,
 .social-networks li.active a {
   background-color: #e5e5e5;
   border-color: #dbdbdb;
@@ -907,12 +892,15 @@ button.button {
   color: #00abdf;
 }
 
+.rounded-menu li.current_page_item,
 .rounded-menu li.active {
   background-color: #00abdf;
   border-color: #00abdf;
   color: #fff;
 }
 
+.rounded-menu li.current_page_item a,
+.rounded-menu li.current_page_item span,
 .rounded-menu li.active a,
 .rounded-menu li.active span {
   color: inherit;
@@ -1874,6 +1862,7 @@ button.button {
   text-decoration: underline;
 }
 
+.footer-menu li.current_page_item a,
 .footer-menu li.active a {
   text-decoration: underline;
 }
@@ -1894,6 +1883,7 @@ button.button {
   z-index: 1000;
 }
 
+.popUp.current_page_item,
 .popUp.active {
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -2099,6 +2089,7 @@ button.button {
   color: #00abdf;
 }
 
+.popUp-switching__button.current_page_item,
 .popUp-switching__button.active {
   border-color: #00abdf;
   color: #00abdf;
@@ -3291,12 +3282,14 @@ button.button {
   flex: 0 0 128px;
 }
 
+.expandedmenu .more.current_page_item,
 .expandedmenu .more.is-active,
 .expandedmenu .more.active {
   background-color: #29ABE2;
   color: #fff;
 }
 
+.expandedmenu .more.current_page_item:hover,
 .expandedmenu .more.is-active:hover,
 .expandedmenu .more.active:hover {
   color: #fff;
@@ -3409,20 +3402,24 @@ button.button {
   .expandedmenu > li ul > li:last-of-type {
     margin-bottom: 0;
   }
+  .expandedmenu > li ul > li.current_page_item,
   .expandedmenu > li ul > li.is-active,
   .expandedmenu > li ul > li.active {
     background: transparent;
   }
+  .expandedmenu > li ul > li.current_page_item a,
   .expandedmenu > li ul > li.is-active a,
   .expandedmenu > li ul > li.active a {
     background-color: #F7F7F7;
     border: 1px solid #E5E5E5;
     color: #7F7F7F;
   }
+  .expandedmenu > li ul > li.current_page_item a:hover,
   .expandedmenu > li ul > li.is-active a:hover,
   .expandedmenu > li ul > li.active a:hover {
     color: #7F7F7F;
   }
+  .expandedmenu > li ul > li.current_page_item:hover a,
   .expandedmenu > li ul > li.is-active:hover a,
   .expandedmenu > li ul > li.active:hover a {
     color: #3F3F3F;
@@ -3437,12 +3434,14 @@ button.button {
     color: #595959;
     font-weight: 300;
   }
+  .expandedmenu > li ul > li a.current_page_item,
   .expandedmenu > li ul > li a.is-active,
   .expandedmenu > li ul > li a.active {
     background-color: #F7F7F7;
     border: 1px solid #E5E5E5;
     color: #7F7F7F;
   }
+  .expandedmenu > li ul > li a.current_page_item:hover,
   .expandedmenu > li ul > li a.is-active:hover,
   .expandedmenu > li ul > li a.active:hover {
     color: #7F7F7F;
@@ -3518,6 +3517,7 @@ button.button {
   .expandedmenu.rounded-menu > li:last-child {
     border-radius: 1000px !important;
   }
+  .expandedmenu.rounded-menu > li:not(.current_page_item),
   .expandedmenu.rounded-menu > li:not(.active) {
     border: 1px solid #e5e5e5 !important;
   }
@@ -3527,6 +3527,14 @@ button.button {
     width: 100%;
     display: block;
   }
+}
+
+.goods__cont_saitobaza .goods__box {
+  display: none;
+}
+
+.goods__cont_saitobaza .goods__box.active {
+  display: block;
 }
 
 /*# sourceMappingURL=maps/main.css.map */
