@@ -325,7 +325,8 @@
 
 <?php
   //Set useful variables for paypal form
-  $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //Test PayPal API URL
+  // $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //Test PayPal API URL
+  $paypalURL = 'https://www.paypal.com/cgi-bin/webscr'; //Test PayPal API URL
   $paypalID = 'psuyi@mail.ru'; //Business Email
 ?>
 <form id="send_paypall" action="<?php echo $paypalURL; ?>" method="post">
