@@ -32,7 +32,7 @@
       <div class="rounded">
         <div class="cont">
           <ul class="rounded-menu rounded-menu--saitobaza">
-            <?php $terms = get_terms( 'social', array( 'parent' => $mother_of_child->term_taxonomy_id, 'orderby' => 'slug', 'hide_empty' => false ) );
+            <?php $terms = get_terms( 'social', array( 'parent' => $mother_of_child->term_taxonomy_id, 'orderby' => 'name', 'order' => 'DESC', 'hide_empty' => false ) );
               $i = 0;
               foreach ( $terms as $term ) { ?>
               <?php $is_active_class = ''; if(($i == 0)){ $is_active_class = 'active'; } ?>
@@ -44,7 +44,7 @@
 
       <div class="goods__cont goods__cont_saitobaza">
 
-        <?php $terms = get_terms( 'social', array( 'parent' => $mother_of_child->term_taxonomy_id, 'orderby' => 'slug', 'hide_empty' => false ) );
+        <?php $terms = get_terms( 'social', array( 'parent' => $mother_of_child->term_taxonomy_id, 'orderby' => 'name', 'order' => 'DESC', 'hide_empty' => false ) );
           $i = 0;
           foreach ( $terms as $term ) { ?>
           <?php $is_active_class = ''; if(($i == 0)){ $is_active_class = 'active'; } ?>
@@ -71,7 +71,36 @@
                         <div class="price-box">
                           <span class="price-box__title"><?php the_title(); ?></span>
                           <span class="price-box__value">$<?php the_field('price'); ?></span>
-                          <span class="button" onclick="open_popup('popUp_8', '10', '10 Followers', '0.00', 'Instagram Username');">Buy Now</span>
+                          <?php
+
+                            $pop_id = 'popUp_1';
+                            $count = intval(preg_replace('/\s+/', '', get_the_title()));
+                            $title = get_the_title();
+                            $price = get_field('price');
+
+                            if (get_field('form_id', $term)) {
+                              $pop_id = get_field('form_id', $term);
+                            }
+                            if (get_field('form_title', $term)) {
+                              $placeholder = get_field('form_title', $term);
+                            } else {
+                              $placeholder = '';
+                            }
+                            if (get_field('price2') != '') {
+                              $price2 = get_field('price2');
+                              $price2_active = '1';
+                            } else {
+                              $price2 = '';
+                              $price2_active = '0';
+                            }
+                          ?>
+
+                          <?php if (get_field('disabled', $term) == true) { ?>
+                            <span class="button" style="opacity: 0.5;" disabled="">Coming soon</span>
+                          <?php } else { ?>
+                            <span class="button" onclick="open_popup('<?php echo $pop_id; ?>', '<?php echo $count; ?>', '<?php echo $title; ?>', '<?php echo $price; ?>', '<?php echo $placeholder; ?>', '<?php echo $price2; ?>', '<?php echo $price2_active; ?>');">Buy Now</span>
+                          <?php } ?>
+
                         </div>
                       </div>
                      <?php endwhile; ?>
